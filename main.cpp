@@ -172,16 +172,18 @@ for(int i = 0;i < 20;i++){
 }
 
 for(int i = 0; i < 21; i++){
-	sprintf_s(name."res/zm_eat/%d.png",i + 1);
+	sprintf_s(name,"res/zm_eat/%d.png",i + 1);
 	loadimage(&imgZMEat[i],name);
 }
+	for(int i=0;i<11;i++){
+	sprintf_s(name,sizeof(name),"res/zm_stand/%d.png",i + 1);
+	loadimage(&imgZMEat[i],name);
 }
 char scoreText[8];
 sprintf_s(scoreText,sizeof(scoreText),"%d",sunshine);
 outtextxy(276,67,scoreText);
 
-drawZM();
-
+drawZM(){
 int bulletMax = sizeof(bullets) / sizeof(bullets[0]);
 for (int i = 0; i < bulletMax; i++) {
     if (bullets[i].used) {
@@ -194,6 +196,7 @@ for (int i = 0; i < bulletMax; i++) {
 }
 }
 EndBatchDraw();//结束双缓冲
+}
 
 void collectSunshine(ExMessage* msg) {
     int count = sizeof(balls) / sizeof(balls[0]);
@@ -238,7 +241,7 @@ void userClick() {
 			curX = msg.x;
 			curY = msg.y;
 		}else if(msg.message == WM_LBUTTONUP){
-			if (msg.x > 256 && msg.y > 179 && msg.y < 489) {
+			if (msg.x > 256-112 && msg.y > 179 && msg.y < 489) {
 				int row = (msg.y - 179) / 102;
 				int col = (msg.x - 256) / 81;
 				//printf("%d,%d\n", row, col);
@@ -249,7 +252,7 @@ void userClick() {
 
 
 
-					map[row][col].x = 256 + col * 81;
+					map[row][col].x = 256-112 + col * 81;
 					map[row][col].y = 179 + row * 102 + 14;
 				}
 			}
@@ -288,18 +291,14 @@ void drawSunshines(){
 		}
 	}
 }
-void updateWindow() {
-	BeginBatchDraw();//开始缓冲
-
-	putimage(0, 0, &imgBg);
-	putimagePNG(250, 0, &imgBar5);
-	for (int i = 0; i < ZHI_WU_COUNT; i++) {
+void drawCards(){
+ 	for (int i = 0; i < ZHI_WU_COUNT; i++) {
 		int x = 338 + i * 64;
 		int y = 6;
 		putimage(x, y, &imgCards[i]);
 	}
-	
-
+}
+void drawZhiWu(){
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 9; j++) {
 			if (map[i][j].type > 0) {
@@ -312,15 +311,22 @@ void updateWindow() {
 
 		}
 	}
-
 	//渲染拖动过程中的植物
 	if (curZhiWu > 0) {
 		IMAGE* img = imgZhiWu[curZhiWu - 1][0];
 		putimagePNG(curX - img->getwidth() / 2, curY - img->getheight() / 2, img);
 	}
+}
+void updateWindow() {
+	BeginBatchDraw();//开始缓冲
 
-drawSunshines();
-	
+	putimage(-112, 0, &imgBg);
+	putimagePNG(250, 0, &imgBar5);
+	drawCards();
+	drawZhiWu();	
+	drawSunshines();
+	drawZM();
+	drawBullets();
 	EndBatchDraw();//结束双缓冲
 }
 
@@ -482,7 +488,7 @@ if (count > 20) {
         bullets[k].speed = 6;
 	bullets[k].blast = false;
 	bullets[k].frameIndex =  0;
-        int zWX = 256 + j * 81;
+        int zWX = 256-112 + j * 81;
         int zWY = 179 + i * 102 + 14;
         bullets[k].x = zWX + imgZhiWuMap[i][j].type - 1 [0] -> getwidth() - 10;
         bullets[k].y = zWY + 5;
@@ -540,7 +546,7 @@ void checkZm2ZhiWu(){
 		int row = zms[i].row;
 		for(int k = 0; k < 9; k++){
 			if(map[row][k].type == 0) continue;
-			int zhiWuX = 256 + k * 81;
+			int zhiWuX = 256-112 + k * 81;
 			int x1 = zhiWuX + 10;
 			int x2 = zhiWuX + 60;
 			int x3 = zms[i].x + 80;
@@ -616,16 +622,77 @@ void startUI() {
 				flag = 1;
 			}
 			else if (msg.message == WM_LBUTTONUP &&flag) {
-				return;
+				EndBatchDraw();
+				break;
 			}
 		}
 		EndBatchDraw();
 	}
 }
+void viewScence(){
+	int xMin = WIN_WIDTH-imgBg.getwidth();
+	vector2 points[9]={{550,80},{530,160},{630,170},{530,200},{515,270},{565,370},{605,340},{705,280},{690,340}}
+	int index[9];
+	for(int i=0;i<9;i++){
+	index[i]=rand()%11;
+	}
+	int count =0;
+	for(int x=0;x>=xMin;x-=2){
+		BeginBatchDraw();
+		putimage(x,0,&imgBg);
+		count++;
+		for(int k=0;k<9;k++){
+			putimagePNG(points[k].x-x-xMin+x,points[k].y,&imgStand[index[k]]);
+			if(count>=10){
+				index[k]=(index[k]+1)%11;
+			}
+		}
+                if(count>=10)	count=0;
+		EndBatchDraw();
+		Sleep(5);
+	}
+//停留1s左右
+for(int i=0;i<100;i++){
+	BeginBatchDraw();
+	putimage(xMin,0,&imgBg);
+	for(int k=0;;k<9;k++){
+		putimage(points[k].x,points[k].y,&imgZmStand[index[k]]);
+		index[k]=(index[k]+1)%11;
+	EndBatchDraw();
+	Sleep(30);
+	}
+	for(int x=xMin;x<=-112;x+=2){
+	BeginBatchDraw();
+	putimage(x,0,&imgBg);
+
+	count++;
+	for(int k=0;k<9;k++){
+		putimagePNG(points[k].x-xMIn+x,points[k].y,&imgZmStand[index[k]]);
+		if(count>=10){
+			index[k]=(index[k]+1)%11;
+			}
+		if(count>=10)	count=0;
+		}
+	}
+}	
+void barsDown(){
+	int height = imgBar.getheight();
+	for( int y=-height;y<=0;y++){
+	BeginBatchDraw();
+	putimage(-112,0,&imgBg);
+	putimagePNG(250,y,&imgBar);
+	for(int i=0;i<ZHI_WU_COUNT;i++){
+		int x=338+i*65;
+		int y1=6+y;
+		putimage(x,y1,&imgCards[i]);
+	}
 
 int main(void) {
 	gameInit();
+	
 	startUI();
+	viewScence();
+	barsDown();
 	int timer = 0;
 	bool flag = true;
 	while (1) {
