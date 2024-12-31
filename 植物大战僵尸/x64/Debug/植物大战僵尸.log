@@ -1,4 +1,41 @@
 ﻿  main.cpp
-C:\Users\29069\source\repos\植物大战僵尸\main.cpp(40,13): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\29069\source\repos\植物大战僵尸\main.cpp(87,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
-  植物大战僵尸.vcxproj -> C:\Users\29069\source\repos\植物大战僵尸\x64\Debug\植物大战僵尸.exe
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(51,32): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(51,21): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(56,32): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(56,21): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(61,50): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(61,27): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(66,28): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(66,19): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(70,28): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(70,19): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(90,39): warning C4244: “return”: 从“double”转换到“__int64”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(95,37): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\vector2.h(95,19): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(93,14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(138,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(167,11): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(170,31): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(169,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(210,10): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(211,10): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(221,20): warning C4244: “初始化”: 从“__int64”转换到“float”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(223,26): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(306,46): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(306,29): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(374,36): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(376,18): warning C4244: “初始化”: 从“__int64”转换到“float”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(377,24): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(393,67): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(393,42): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(394,67): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(394,42): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(397,23): warning C4305: “=”: 从“double”到“float”截断
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(707,44): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(707,32): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(721,38): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(721,25): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(733,45): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+C:\Users\17380\source\repos\PBLF-in-UESTC1\main.cpp(733,33): warning C4244: “参数”: 从“__int64”转换到“int”，可能丢失数据
+  植物大战僵尸.vcxproj -> C:\Users\17380\source\repos\PBLF-in-UESTC1\x64\Debug\植物大战僵尸.exe
